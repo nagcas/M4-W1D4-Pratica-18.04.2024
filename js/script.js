@@ -35,7 +35,7 @@ function search(idArtista = "") {
   } else {
     // altrimenti richiama il valore inserito nella casella di input di ricerca
     searchArtist = searchField.value;
-    console.log(searchArtist);
+    //console.log(searchArtist);
   }
 
   if (searchArtist) {
@@ -84,15 +84,17 @@ function elencoCanzoni(listaCanzoni, idArtista = "") {
   
   // Esegui un ciclo in funzione dei brani presenti
   listaCanzoni.forEach(brano => {
+
     // Crea un elemento div con classe card da inserire nel document html
     let content = document.createElement("div");
+    
     content.classList.add("card");
-    content.innerHTML =` 
+    content.innerHTML =`
       <img src="${brano.album.cover}" class="card-img-top" alt="${brano.title_short}">
       <div class="card-body">
-        <h5 class="card-title">${brano.title_short}</h5>
-        <p class="card-text">${brano.dutation}</p>
-      </div>
+        <h5 class="card-title">Title: ${brano.title_short}</h5>
+        <p class="card-text">Artist: ${brano.artist.name}</p>
+        <p class="card-text">Duration: ${brano.duration}</p>
       `
     inContent.append(content);
   });
@@ -123,7 +125,7 @@ function clearSearch() {
  * Si attiva nel momento in cui si apre il document html
  */
 
-document.addEventListener("DOMContentLoaded", ()=> {
+document.addEventListener("DOMContentLoaded", () => {
   viewMusic.forEach(artista => {
     search(artista.id);
   });

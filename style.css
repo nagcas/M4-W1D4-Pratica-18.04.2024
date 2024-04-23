@@ -231,11 +231,13 @@ ul {
 }
 
 .card {
-  height: 400px;
-  background-color: #292929;
+  height: 420px;
+  border-radius: 20px;
+  background-color: #1a1717e7;
   display: inline-block;
   overflow: hidden;
   margin: 5px;
+  color: #fff;
 }
 
 .card img {
